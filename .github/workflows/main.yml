@@ -1,0 +1,18 @@
+name: Glory Bot Running
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch: # এটি দিলে আপনি হাত দিয়েও স্টার্ট করতে পারবেন
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.9'
+      - name: Run Glory Bot
+        run: python main.py
